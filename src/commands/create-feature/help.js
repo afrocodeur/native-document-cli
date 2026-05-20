@@ -1,0 +1,30 @@
+export const createFeatureHelp = (args) => {
+    return [
+        '',
+        '<font color="cyan" bold>Usage:</font>',
+        '<tab/><font color="green">nd create:feature</font> <font color="gray"><featureName></font>',
+        '',
+        '<font color="cyan" bold>Examples:</font>',
+        '<tab/><font color="green">nd create:feature auth</font>',
+        '<tab/><font color="green">nd create:feature user-profile</font>',
+        '',
+        '<font color="gray">Run with --params for more details</font>',
+        ...(args?.includes('--params') ? [
+            '',
+            '<font color="cyan" bold>Parameters:</font>',
+            '',
+            '<tab/><font color="green">featureName</font>',
+            '<tab repeat="2"/><font color="gray">Type    : string</font>',
+            '<tab repeat="2"/><font color="gray">Required: yes</font>',
+            '<tab repeat="2"/><font color="gray">Example : auth, user-profile, shop</font>',
+            '<tab repeat="2"/><font color="gray">Note    : kebab-case recommended</font>',
+            '',
+            '<font color="cyan" bold>Generates:</font>',
+            '<tab/><font color="gray">src/features/featureName/</font>',
+            '<tab/><font color="gray">src/features/featureName/components/</font>',
+            '<tab/><font color="gray">src/features/featureName/services/FeatureNameService/FeatureNameService.js</font>',
+            '<tab/><font color="gray">src/features/featureName/utils/</font>',
+            '<tab/><font color="gray">src/features/featureName/index.js</font>',
+        ] : []),
+    ];
+};
