@@ -4,12 +4,8 @@
   "description": "Official CLI for NativeDocument framework",
   "type": "module",
   "bin": {
-    "nd": "./bin/index.js"
+    "nd": "bin/index.js"
   },
-  "files": [
-    "bin",
-    "template"
-  ],
   "keywords": [
     "native-document",
     "cli",
