@@ -1,8 +1,19 @@
 import { Context } from '../context/Context.js';
 import { print } from '../utils/format.js';
 import { parseArgs } from '../utils/args.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import fs from 'fs'
 
-const VERSION = '0.0.1';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+let VERSION = '0.0.1';
+try {
+    const pkg = JSON.parse(fs.readFileSync(__dirname+'/../../package.json', 'utf8'));
+    VERSION = pkg.version;
+} catch (err) {}
+
 
 export default function CommandRegistry() {
     this.$commands = {};
@@ -63,7 +74,7 @@ CommandRegistry.prototype.process = function() {
     }
 
     if (commandName === '--version' || commandName === '-v') {
-        print(`<font color="cyan">NativeDocument CLI v${VERSION}</font>`);
+        print(`<font color="cyan">@native-document/cli v${VERSION}</font>`);
         process.exit(0);
     }
 

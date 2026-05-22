@@ -82,7 +82,7 @@ const CreateCommand = {
         // Create feature structure if --feature flag is set
         if (feature) {
             print('<font color="cyan">Setting up feature-based architecture...</font>');
-            await createFeatureStructure(dest);
+            await createFeatureStructure(dest, 'example');
         }
 
         // Install dependencies
